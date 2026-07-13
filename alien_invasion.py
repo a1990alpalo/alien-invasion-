@@ -48,8 +48,17 @@ class AlienInvasion:
                 self.running = False
                 pygame.quit()
                 sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                self._check_keydown_events(event)
+            elif event.type == pygame.KEYUP:
+                self._check_keyup_events(event)
+                
 
-        
+            
+    def _check_keyup_events(self, event):
+        pass
+    def _check_keydown_events(self, event):
+        pass
             
 
 
