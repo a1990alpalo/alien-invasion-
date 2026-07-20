@@ -6,8 +6,8 @@ if TYPE_CHECKING:
     from alien_invasion import AlienInvasion
 
 
-class Bullet(sprite):
-    def __innit__(self, game: 'AlienInvasion'):
+class Bullet(Sprite):
+    def __init__(self, game: 'AlienInvasion'):
         super().__init__()
         
         self.screen = game.screen 
