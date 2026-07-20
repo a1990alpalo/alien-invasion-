@@ -42,7 +42,7 @@ class Settings:
         self.alien_file = (
             Path.cwd()
             /"Assets"
-            /"sound"
+            /"images"
             /"enemy_4.png"
         )
         self.fleet_speed = 5
