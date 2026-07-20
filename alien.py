@@ -31,7 +31,7 @@ class Alien(Sprite):
         temp_speed = self.settings.fleet_speed
 
         if self.check_edges():
-            self.settings.fleet_direction += -1
+            self.settings.fleet_direction *= -1
 
         self.x += temp_speed * self.settings.fleet_direction
         self.rect.x = self.x
