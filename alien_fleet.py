@@ -25,7 +25,7 @@ class AlienFleet:
 
         #half_screen = self.settings.screen_w
         fleet_horizontal_space = fleet_w * alien_w
-        x_offset = int((screen_w- fleet_horizontal_space)//2)
+        x_offset = int((screen_w - fleet_horizontal_space)//2)
 
         for col in range(fleet_w):
             current_x = alien_w * col + x_offset
@@ -45,7 +45,7 @@ class AlienFleet:
         return fleet_w
     
     def _create_alien(self, current_x: int , current_y: int):
-        new_alien = Alien(self, current_x, current_x)
+        new_alien = Alien(self, current_x, current_y)
  
         self.fleet.add(new_alien)
 
