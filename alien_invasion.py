@@ -1,10 +1,12 @@
 import sys
 import pygame
 from settings import Settings 
+from game_stats import GameStats
 from ship import Ship
 from arsenal import Arsenal
 #from alien import Alien
 from alien_fleet import AlienFleet
+from time import sleep
 class AlienInvasion: 
     """Manage the game screen and the main loop"""
     
@@ -12,6 +14,7 @@ class AlienInvasion:
         """Initiates pygame and create the game window"""
         pygame.init()
         self.settings = Settings()
+        self.game_stats = GameStats(self.settings.starting_ship_count)
 
         self.screen = pygame.display.set_mode(
             (self.settings.screen_w, self.settings.screen_h)
@@ -38,16 +41,17 @@ class AlienInvasion:
         self.ship = Ship(self, Arsenal(self))
         self.alien_fleet = AlienFleet(self)
         self.alien_fleet.create_fleet()
+        self.game_active = True
     
     def run_game(self)-> None:
         """run the main game loop """
         #Game Loop 
         while self.running:
             self._check_events()
-            self.ship.update()
-            self.alien_fleet.update_fleet()
-            self._check_collisions()
-
+            if self.game_active:
+                self.ship.update()
+                self.alien_fleet.update_fleet()
+                self._check_collisions()
             self._update_screen()
             self.clock.tick(self.settings.FPS)
 
@@ -55,13 +59,13 @@ class AlienInvasion:
     def _check_collisions(self):
         # check collisions for ship 
         if self.ship.check_collisions(self.alien_fleet.fleet):
-            self._reset_level()
+            self._check_game_status()
            
             # subtract one life if possible 
 
         # check collisions for aliens and bottonm of screen
         if self.alien_fleet.check_fleet_bottom():
-            self._reset_level()
+            self._check_game_status()
 
         # check collisions of projectiles and aliens 
         collisions = self.alien_fleet.check_collisions(self.ship.arsenal.arsenal)
@@ -72,6 +76,17 @@ class AlienInvasion:
         if self.alien_fleet.check_destroyed_status():
             self._reset_level()
 
+    
+    def _check_game_status(self): 
+        
+        
+        if self.game_stats.ships_left > 0:
+            self.game_stats.ships_left -= 1
+            self._reset_level()
+            sleep(0.5)
+        else: 
+            self.game_active = False
+            
 
     def _reset_level(self): 
         self.ship.arsenal.arsenal.empty()
