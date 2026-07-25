@@ -57,3 +57,10 @@ class Settings:
             /"sound"
             /"laser.mp3"
         )
+
+        self.impact_sound = (
+            Path.cwd()
+            /"Assets"
+            /"sound"
+            /"ImpactSound.mp3"
+        )
