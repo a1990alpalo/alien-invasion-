@@ -76,9 +76,9 @@ class Settings:
         self.button_font_size = 48
         self.HUD_font_size = 20
         self.font_file = (
-            Path.cwd()
-            /"Assets"
-            /"Fonts"
-            /"Silkscreen"
-            /"Silkscree.ttf"
+        Path.cwd()
+        / "Assets"
+        / "Fonts"
+        / "Silkscreen"
+        / "Silkscreen-Regular.ttf"
         )
