@@ -26,7 +26,7 @@ class Settings:
         self.ship_h = 60 
         self.ship_speed = 5
         self.starting_ship_count = 3
-        
+
 
         self.bullet_file = (
             Path.cwd()
@@ -52,6 +52,7 @@ class Settings:
         self.alien_h = 40
         self.fleet_direction = 1
         self.fleet_drop_speed = 40
+
         
         self.laser_sound = (
             Path.cwd()
@@ -67,3 +68,17 @@ class Settings:
             /"ImpactSound.mp3"
         )
 
+        self.button_w = 200
+        self.button_h = 50
+        self.button_color = (0,135,50)
+
+        self.text_color = (255,255,255)
+        self.button_font_size = 48
+        self.HUD_font_size = 20
+        self.font_file = (
+            Path.cwd()
+            /"Assets"
+            /"Fonts"
+            /"Silkscreen"
+            /"Silkscree.ttf"
+        )
