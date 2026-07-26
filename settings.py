@@ -16,6 +16,12 @@ class Settings:
             / "Starbasesnow.png"
         )
         self.difficulty_scale = 1.1
+        self.scores_file = (
+            Path.cwd()
+            /"Assets"
+            /"files"
+            /"scores.json"
+        )
 
         self.ship_file = (
             Path.cwd()
