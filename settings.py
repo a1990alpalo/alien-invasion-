@@ -15,6 +15,7 @@ class Settings:
             / "images"
             / "Starbasesnow.png"
         )
+        self.difficulty_scale = 1.1
 
         self.ship_file = (
             Path.cwd()
@@ -81,10 +82,17 @@ class Settings:
         """Initialize settings that change during the game."""
         self.ship_speed = 5
         self.starting_ship_count = 3
+        
         self.bullet_speed = 7
         self.bullet_amount = 5
         self.fleet_speed = 2
         self.fleet_drop_speed = 40
+        self.alien_points = 50 
         self.fleet_direction = 1
         self.bullet_w = 25
         self.bullet_h = 80
+
+    def increase_difficulty(self):
+        self.ship_speed *= self.difficulty_scale
+        self.bullet_speed *= self.difficulty_scale
+        self.fleet_speed *= self.difficulty_scale
