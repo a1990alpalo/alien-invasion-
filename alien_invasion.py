@@ -15,6 +15,7 @@ class AlienInvasion:
         """Initiates pygame and create the game window"""
         pygame.init()
         self.settings = Settings()
+        self.settings.initialize_dynamic_settings()
         self.game_stats = GameStats(self.settings.starting_ship_count)
 
         self.screen = pygame.display.set_mode(

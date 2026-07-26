@@ -24,8 +24,7 @@ class Settings:
         )
         self.ship_w = 40
         self.ship_h = 60 
-        self.ship_speed = 5
-        self.starting_ship_count = 3
+        
 
 
         self.bullet_file = (
@@ -35,11 +34,6 @@ class Settings:
             /"laserBlast.png"
         )
 
-        self.bullet_speed = 7
-        self.bullet_w = 25
-        self.bullet_h = 80
-        self.bullet_amount = 5
-
 
         self.alien_file = (
             Path.cwd()
@@ -47,11 +41,9 @@ class Settings:
             /"images"
             /"enemy_4.png"
         )
-        self.fleet_speed = 2
         self.alien_w = 40
         self.alien_h = 40
         self.fleet_direction = 1
-        self.fleet_drop_speed = 40
 
         
         self.laser_sound = (
@@ -76,9 +68,23 @@ class Settings:
         self.button_font_size = 48
         self.HUD_font_size = 20
         self.font_file = (
-        Path.cwd()
-        / "Assets"
-        / "Fonts"
-        / "Silkscreen"
-        / "Silkscreen-Regular.ttf"
+            Path.cwd()
+            / "Assets"
+            / "Fonts"
+            / "Silkscreen"
+            / "Silkscreen-Regular.ttf"
         )
+
+        
+
+    def initialize_dynamic_settings(self) -> None:
+        """Initialize settings that change during the game."""
+        self.ship_speed = 5
+        self.starting_ship_count = 3
+        self.bullet_speed = 7
+        self.bullet_amount = 5
+        self.fleet_speed = 2
+        self.fleet_drop_speed = 40
+        self.fleet_direction = 1
+        self.bullet_w = 25
+        self.bullet_h = 80
