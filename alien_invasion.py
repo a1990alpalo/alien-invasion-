@@ -44,7 +44,7 @@ class AlienInvasion:
         self.alien_fleet.create_fleet()
 
         self.play_button = Button(self, 'Play')
-        self.game_active = True
+        self.game_active = False
     
     def run_game(self)-> None:
         """run the main game loop """
@@ -124,7 +124,7 @@ class AlienInvasion:
                 self.running = False
                 pygame.quit()
                 sys.exit()
-            elif event.type == pygame.KEYDOWN:
+            elif event.type == pygame.KEYDOWN and self.game_active ==True:
                 self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
                 self._check_keyup_events(event)
